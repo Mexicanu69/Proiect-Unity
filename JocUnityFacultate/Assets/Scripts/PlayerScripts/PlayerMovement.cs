@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 
     private InputAction moveAction;
     public float speed;
+    private int test;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
