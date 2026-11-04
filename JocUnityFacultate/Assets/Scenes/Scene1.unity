@@ -515,6 +515,7 @@ GameObject:
   - component: {fileID: 1228170918}
   - component: {fileID: 1228170917}
   - component: {fileID: 1228170920}
+  - component: {fileID: 1228170921}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -624,7 +625,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 25
+  orthographic size: 45
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -653,8 +654,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IsometricCamera
   targetPosition: {fileID: 1259668507}
-  distance: 50
   smoothTime: 0.15
+--- !u!114 &1228170921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228170915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06f1647ec2f23f641b28817f3cb65a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::cameraZoom
+  zoomStep: 5
+  smoothTime: 0.15
+  zoomAction: {fileID: 2730700480251334044, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!1 &1259668502
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,6 +825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7fb5466bc7794047a879ebe214c74b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  speed: 40
 --- !u!1 &1463407546
 GameObject:
   m_ObjectHideFlags: 0

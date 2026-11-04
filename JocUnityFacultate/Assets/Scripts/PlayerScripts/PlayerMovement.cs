@@ -5,8 +5,8 @@ public class PlayerMovement : MonoBehaviour
 {
 
     private InputAction moveAction;
-    public float speed;
-    private int test;
+    [SerializeField]
+    private float speed = 45f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
