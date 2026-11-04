@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     private InputAction moveAction;
+    [SerializeField]
     public float speed;
 
 
