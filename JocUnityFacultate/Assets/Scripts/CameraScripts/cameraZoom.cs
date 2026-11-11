@@ -3,14 +3,14 @@ using UnityEngine.InputSystem;
 
 public class cameraZoom : MonoBehaviour
 {
-    private float maxZoom = 80f;
-    private float minZoom = 10f;
+    private float maxZoom = 50f;
+    private float minZoom = 5f;
     private float targetZoomValue;
     private float actualCameraSize;
     private float velocity;
 
     [SerializeField]
-    private float zoomStep = 0.5f;
+    private float zoomStep = 0.3f;
 
     [SerializeField]
     private float smoothTime = 0.3f;
@@ -27,7 +27,7 @@ public class cameraZoom : MonoBehaviour
 
     public void Update()
     {   
-        //La fiecare frame, zoomAction ne intoarece -1 (scroll down) , 1 (scroll down) sau 0 (no scroll action)
+        //La fiecare frame, zoomAction ne intoarece -1 (scroll down) , 1 (scroll up) sau 0 (no scroll action)
         float scroll = zoomAction.action.ReadValue<Vector2>().y;
 
         targetZoomValue -= scroll * zoomStep;
