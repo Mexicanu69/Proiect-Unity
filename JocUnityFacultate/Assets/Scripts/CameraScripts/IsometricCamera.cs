@@ -6,7 +6,7 @@ public class IsometricCamera : MonoBehaviour
     private Transform targetPosition;
     [SerializeField]
     private float smoothTime = 0.15f;
-    private float distance = 25.0f;
+    private float distance = 100.0f;
 
     Vector3 offset;
     Vector3 velocity;
