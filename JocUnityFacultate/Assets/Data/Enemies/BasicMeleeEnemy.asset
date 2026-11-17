@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d2b7a636755b7743921d66f4dc32a06, type: 3}
+  m_Name: BasicMeleeEnemy
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  enemyName: Basic Melee
+  prefab: {fileID: 415558614348908899, guid: 798772819a09836468c0d22e46ac90c8, type: 3}
+  maxHealth: 40
+  moveSpeed: 10
+  attackDamage: 5
+  attackRange: 2.15
+  attackCooldown: 2
+  abilities:
+  - {fileID: 11400000, guid: 141eebcf9a23f154eb50c7f7eff44af6, type: 2}
+  xpReward: 10
+  cost: 10
+  spawnWeight: 1
+  minGameTime: 0
