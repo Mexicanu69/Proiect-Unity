@@ -1,7 +1,13 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Ability", menuName = "Scriptable Objects/Ability")]
-public class Ability : ScriptableObject
+public abstract class Ability : ScriptableObject
 {
-    
+    [Header("Info")]
+    public string displayName;
+
+    [TextArea] public string description;
+    public Sprite icon;
+
+    [Header("Visuals")]
+    public GameObject particleEffect;
 }

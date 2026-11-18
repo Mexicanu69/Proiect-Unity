@@ -1,16 +1,9 @@
 using UnityEngine;
 
-public class Mover : MonoBehaviour
+public abstract class Mover : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public abstract void SetSpeed(float speed);
+    public abstract void MoveTo(Vector3 target);
+    public abstract void Stop();
+    public abstract void Teleport(Vector3 position);
 }
