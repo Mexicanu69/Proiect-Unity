@@ -18,3 +18,7 @@ Proiect pentru materia "Introducere in Dezvoltarea Jocurilor pe Calculator"
 
 ## Versiune Unity: 
   Unity 6.3 LTS
+
+
+## Mail pentru recenzii:
+  persican17@gmail.com
