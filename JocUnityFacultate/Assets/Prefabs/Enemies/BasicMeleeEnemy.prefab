@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 112243515501433244}
   - component: {fileID: 6050883824958199389}
   - component: {fileID: -2797416560790157242}
+  - component: {fileID: -7982968304175023495}
   m_Layer: 0
   m_Name: BasicMeleeEnemy
   m_TagString: Untagged
@@ -226,3 +227,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAutoAttack
   damage: 5
   cooldown: 2
+--- !u!114 &-7982968304175023495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415558614348908899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7a6488c9d3bb9d4b921ecba4d2703ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFlash
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
+  duration: 0.2

@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 1072802724}
   - component: {fileID: 1072802723}
   - component: {fileID: 1072802722}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (3)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ GameObject:
   - component: {fileID: 1127895998}
   - component: {fileID: 1127895997}
   - component: {fileID: 1127895996}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -685,11 +685,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OcclusionHider
   target: {fileID: 1259668507}
   targetHeight: 1
-  obstacleLayers:
+  obstacleLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
   radius: 0.3
-  castDistance: 100
 --- !u!1 &1259668502
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,7 +703,10 @@ GameObject:
   - component: {fileID: 1259668511}
   - component: {fileID: 1259668512}
   - component: {fileID: 1259668514}
-  - component: {fileID: 1259668513}
+  - component: {fileID: 1259668509}
+  - component: {fileID: 1259668515}
+  - component: {fileID: 1259668516}
+  - component: {fileID: 1259668517}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -850,18 +852,6 @@ CapsuleCollider:
   m_Height: 1.9999999
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1259668513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1259668502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01f06599f61babd4ea8c3862e48f192b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerEntity
 --- !u!114 &1259668514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -875,6 +865,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 100
+  currentHealth: 0
+  isDead: 0
+--- !u!114 &1259668515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259668502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f65ee2daf73d3d4ca5a5f1285be4ebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityExecutor
+  ability: {fileID: 11400000, guid: c3c1e63e3e1531f46b230c0f63ab83e1, type: 2}
+  maxTargets: 10
+--- !u!114 &1259668516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259668502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7a6488c9d3bb9d4b921ecba4d2703ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFlash
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
+  duration: 0.1
+--- !u!114 &1259668517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259668502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bca0932100bd677478553f547d3ddd07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mana
+  maxMana: 100
+  currentMana: 0
 --- !u!1 &1463407546
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,7 +1322,7 @@ GameObject:
   - component: {fileID: 1796487208}
   - component: {fileID: 1796487207}
   - component: {fileID: 1796487206}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (4)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1435,7 +1469,7 @@ GameObject:
   - component: {fileID: 1907830304}
   - component: {fileID: 1907830303}
   - component: {fileID: 1907830302}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (2)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1612,3 +1646,4 @@ SceneRoots:
   - {fileID: 1844586669}
   - {fileID: 2053186436}
   - {fileID: 1724021316}
+  - {fileID: 596247783}
