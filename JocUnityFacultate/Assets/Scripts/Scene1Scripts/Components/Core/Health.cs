@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField, Min(1)] private float maxHealth = 100f;
     [SerializeField, ReadOnly] private float currentHealth;
@@ -44,7 +44,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void HealDamage(float amt)
+    public void GainHealth(float amt)
     {
         if (isDead || amt <= 0)
             return;

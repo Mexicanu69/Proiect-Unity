@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class cameraZoom : MonoBehaviour
 {
-    private float maxZoom = 50f;
+    private float maxZoom = 45f;
     private float minZoom = 5f;
     private float targetZoomValue;
     private float actualCameraSize;
