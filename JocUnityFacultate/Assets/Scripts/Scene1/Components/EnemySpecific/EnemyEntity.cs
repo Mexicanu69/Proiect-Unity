@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemyEntity : Entity
+{
+    public static readonly List<EnemyEntity> Active = new List<EnemyEntity>();
+    public EnemyCreation Creation { get; private set; }
+
+    // actiune de intoarcere in pool
+    private Action<EnemyEntity> returnToPool;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        Creation = GetComponent<EnemyCreation>();
+        Health.OnDeath += HandleDeath;
+    }
+
+    public void SetReturnToPool(Action<EnemyEntity> action)
+    {
+        returnToPool = action;
+    }
+
+    private void HandleDeath()
+    {
+        if (returnToPool != null)
+            returnToPool(this);
+        else
+            // l-am pus eu manual daca nu e din object pool
+            // deci pot sa il Destroy()
+            Destroy(gameObject);
+    }
+
+
+//basically tinem minte inamicii activi pentru later use
+    protected void OnEnable()
+    {
+        if(!Active.Contains(this)) Active.Add(this);
+    }
+
+    protected void OnDisable()
+    {
+        Active.Remove(this);
+    }
+}
