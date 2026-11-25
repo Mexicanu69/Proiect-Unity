@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -19,7 +18,7 @@ public class Health : MonoBehaviour
 
     void Awake()
     {
-        currentHealth = maxHealth;    
+        currentHealth = maxHealth;
     }
 
     public void SetMaxHealth(float valMaxHp)
