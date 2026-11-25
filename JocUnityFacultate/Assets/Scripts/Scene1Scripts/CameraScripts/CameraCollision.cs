@@ -26,10 +26,6 @@ public class OcclusionHider : MonoBehaviour
         obiecteBlocate.Clear();
         RaycastHit[] hits = Physics.SphereCastAll(cameraPosition, radius, dir.normalized,
                                           dir.magnitude, obstacleLayer);
-
-        Debug.Log($"from {cameraPosition} hits: {hits.Length}");
-        foreach (var hit in hits)
-            Debug.Log($"  hit {hit.collider.name}, renderer: {hit.collider.GetComponent<Renderer>() != null}");
         //fiecare obiect are Renderer(tine de desenarea pe ecran: material, umbre, etc) si Collider (forma fizica)
         foreach (var hit in hits)
         {   

@@ -200,13 +200,17 @@ public class EnemyDirector : MonoBehaviour
 
     private bool TryGetSpawnPosition(out Vector3 position)
     {
+        Vector3 center = target.position;
+        if (NavMesh.SamplePosition(center, out NavMeshHit ground, 10f, NavMesh.AllAreas))
+            center = ground.position;
+
         for (int attempt = 0; attempt < 10; attempt++)
         {
             float angle = Random.Range(0f, Mathf.PI * 2f);
             float distance = Random.Range(minSpawnDistance, maxSpawnDistance);
             Vector3 offset = new Vector3(Mathf.Cos(angle), 0f, Mathf.Sin(angle)) * distance;
 
-            if (NavMesh.SamplePosition(target.position + offset, out NavMeshHit hit, 2f, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(center + offset, out NavMeshHit hit, 3f, NavMesh.AllAreas))
             {
                 position = hit.position;
                 return true;
