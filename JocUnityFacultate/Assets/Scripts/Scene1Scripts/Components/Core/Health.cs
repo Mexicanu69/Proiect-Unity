@@ -7,6 +7,7 @@ public class Health : MonoBehaviour, IDamageable
     [SerializeField, ReadOnly] private float currentHealth;
     [SerializeField, ReadOnly] private bool isDead;
     //listener pentru damage
+    public event Action<float, float> OnHealthChange;
     public event Action<float> OnDamaged;
 
     // readonly public
@@ -21,11 +22,19 @@ public class Health : MonoBehaviour, IDamageable
         currentHealth = maxHealth;
     }
 
+    void OnEnable()
+    {
+        currentHealth = maxHealth;
+        isDead = false;
+        OnHealthChange?.Invoke(currentHealth, maxHealth);
+    }
+
     public void SetMaxHealth(float valMaxHp)
     {
         maxHealth = valMaxHp;
         currentHealth = valMaxHp;
         isDead = false;
+        OnHealthChange?.Invoke(currentHealth, maxHealth);
     }
 
     public void TakeDamage(float amt)
@@ -34,8 +43,8 @@ public class Health : MonoBehaviour, IDamageable
             return;
 
         currentHealth -= amt;
+        OnHealthChange?.Invoke(currentHealth, maxHealth);
         OnDamaged?.Invoke(amt);
-        Debug.Log($"{name} [{GetInstanceID()}] took {amt} → {currentHealth}/{maxHealth}");
 
         if (currentHealth <= 0)
         {
@@ -50,10 +59,16 @@ public class Health : MonoBehaviour, IDamageable
             return;
 
         if (currentHealth + amt >= maxHealth)
+        {
             // nu depaseste max hp
             currentHealth = maxHealth;
+            OnHealthChange?.Invoke(currentHealth, maxHealth);
+        }
         else
+        {
             currentHealth += amt;
+            OnHealthChange?.Invoke(currentHealth, maxHealth);
+        }
     }
 
     private void Die()

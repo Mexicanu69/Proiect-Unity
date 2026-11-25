@@ -13,14 +13,21 @@ MonoBehaviour:
   m_Name: KnifeOfFortitude
   m_EditorClassIdentifier: Assembly-CSharp::AbilityData
   label: KnifeOfFortitude
-  effects: []
-  cooldown: 2
+  effects:
+  - rid: 5466898832751067412
+  cooldown: 1
   manaCost: 10
   targeting:
-    rid: 5466898832751067405
+    rid: 5466898832751067411
   references:
     version: 2
     RefIds:
-    - rid: 5466898832751067405
-      type: {class: SelfTargeting, ns: , asm: Assembly-CSharp}
-      data: 
+    - rid: 5466898832751067411
+      type: {class: AreaTargeting, ns: , asm: Assembly-CSharp}
+      data:
+        range: 5
+        maxTargets: 3
+    - rid: 5466898832751067412
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        damageAmount: 10
