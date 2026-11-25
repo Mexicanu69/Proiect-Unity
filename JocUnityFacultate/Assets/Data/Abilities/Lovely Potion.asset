@@ -15,8 +15,9 @@ MonoBehaviour:
   label: ManaRegen
   effects:
   - rid: 5466898832751067402
-  cooldown: 2
-  manaCost: 10
+  - rid: 5466898832751067413
+  cooldown: 10
+  manaCost: 0
   targeting:
     rid: 5466898832751067401
   references:
@@ -30,3 +31,7 @@ MonoBehaviour:
       data:
         percentOfMaxMana: 0.3
         duration: 5
+    - rid: 5466898832751067413
+      type: {class: HealthRegen, ns: , asm: Assembly-CSharp}
+      data:
+        healthRegenAmount: 40

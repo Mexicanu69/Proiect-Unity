@@ -16,8 +16,13 @@ public class AbilityExecutor : MonoBehaviour
 
     private void Update()
     {   //TODO: use new input system (this is just for test)
+        if (ability == null) return;
+
         if (Keyboard.current.eKey.wasPressedThisFrame && Time.time >= nextCastTime)
         {
+            Debug.Log($"E apasat | ability={(ability != null ? ability.name : "NULL")} " +
+             $"targeting={ability?.targeting?.GetType().Name ?? "NULL"} " +
+             $"effects={ability?.effects?.Count} mana={mana?.CurrentMana} cooldownOk={Time.time >= nextCastTime}");
             //daca exista componenta mana pe player dar nu mai are mana atunci rip
             if (mana != null && mana.CurrentMana < ability.manaCost)
             {
@@ -37,7 +42,7 @@ public class AbilityExecutor : MonoBehaviour
         targets.Clear();
         ability.targeting?.GetTargets(gameObject, targets);
 
-        foreach(var target in targets)
+        foreach (var target in targets)
         {
             Execute(target);
         }

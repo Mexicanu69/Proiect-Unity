@@ -13,6 +13,8 @@ public abstract class EnemyBrain : MonoBehaviour
 
     [SerializeField, Min(0)] private float turnSpeed = 720f;
 
+    protected Collider targetCollider;
+
     protected Health targetHealth;
     protected EnemyAutoAttack autoAttack;
 
@@ -48,6 +50,7 @@ public abstract class EnemyBrain : MonoBehaviour
     {
         target = newTarget;
         targetHealth = newTarget != null ? newTarget.GetComponent<Health>() : null;
+        targetCollider = newTarget != null ? newTarget.GetComponentInChildren<Collider>() : null;
     }
 
     public void SetAttackRange(float range)
@@ -57,9 +60,12 @@ public abstract class EnemyBrain : MonoBehaviour
 
     protected bool IsTargetInRange()
     {
-        Vector3 offset = target.position - transform.position;
+        Vector3 point = targetCollider != null
+        ? targetCollider.ClosestPoint(transform.position)
+        : target.position;
+
+        Vector3 offset = point - transform.position;
         offset.y = 0f;
-        
         return offset.sqrMagnitude <= attackRange * attackRange;
     }
 

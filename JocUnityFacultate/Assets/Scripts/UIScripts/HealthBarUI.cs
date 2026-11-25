@@ -6,29 +6,31 @@ public class HealthBarUI : MonoBehaviour
     [SerializeField] Health health;
     [SerializeField] Slider healthSlider;
 
-    void OnEnable() => health.OnDamaged += UpdateBar;
+    void OnEnable()
+    {
+        if(health.CurrentHealth == 0)
+        {
+            Debug.Log("Player should be dead!");
+        }
+
+        health.OnHealthChange += UpdateBar;
+        UpdateBar(health.CurrentHealth, health.MaxHealth);
+
+    }
 
     void OnDisable()
     {
-        health.OnDamaged -= UpdateBar;
+        health.OnHealthChange -= UpdateBar;
     }
 
-    void UpdateBar(float _)
+    void UpdateBar(float currentHealth, float maxHealth)
     {
-        if(health.MaxHealth==0)
-        {
-            Debug.Log($"Max health egal cu 0");
-            return;
-        }
-        float sliderSize = 1f - (health.CurrentHealth / health.MaxHealth);
-        //asociem cu UI ul    
-        healthSlider.value = sliderSize;
+        healthSlider.value = maxHealth > 0f ? currentHealth / maxHealth : 0f;
 
-        }
-
+    }
 
     void Start()
     {
-        UpdateBar(0);
+        UpdateBar(health.CurrentHealth, health.MaxHealth);
     }
 }
